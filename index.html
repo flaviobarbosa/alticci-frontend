@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alticci Sequence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="grid justify-center text-center">
+      
+      <h1 class="text-3xl font-bold underline text-center mt-4 mb-8">Alticci Sequence</h3>
+
+      <label for="index" class="mb-4">Choose an index to get the Alticci sequence</label>
+      <input id="index" type="number" min="0" class="mb-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white "/>
+      <button onclick="getSequence()" class="mb-4 flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">Submit</button>
+
+      <p id="sequenceValue"></p>
+    </div>
+
+    <script>
+      const indexInput = document.getElementById('index');
+      const answer = document.getElementById('sequenceValue');
+
+      async function getSequence() {
+        const response = await fetch(`http://localhost:8080/alticci/${indexInput.value}`);
+        const { data } = await response.json();
+        console.log(data);
+
+        answer.innerHTML = `The sequence value for index ${indexInput.value} is: ${data}`;
+      }
+    </script>
+    
+  </body>
+</html>
