@@ -1,8 +1,9 @@
 # Altice Labs Exercise
 
-### Name:  Flavio Barbosa
+### Name: Flavio Barbosa
 
 ## Requirements
+
 - Node
 
 ## How to execute
@@ -13,11 +14,11 @@
 > git clone <repository>
 ```
 
-- Run commands  
+- Run commands
 
 ```sh
 > cd alticci-frontend
 
-> npx http-server
+> npx http-server -p 3000
 
 ```
