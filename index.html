@@ -25,10 +25,15 @@
 
       async function getSequence() {
         const response = await fetch(`http://localhost:8080/alticci/${indexInput.value}`);
+
+        if(response.ok) {
         const { data } = await response.json();
         console.log(data);
 
         answer.innerHTML = `The sequence value for index ${indexInput.value} is: ${data}`;
+      } else {
+        alert("An error occurred");
+      }
       }
     </script>
     
